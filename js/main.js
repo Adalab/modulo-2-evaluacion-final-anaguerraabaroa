@@ -6,6 +6,8 @@ const listContainerElement = document.querySelector(".js-list-container");
 
 let shows = [];
 
+// function get data from server
+
 function getData() {
   let inputValue = inputElement.value;
   fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
@@ -17,6 +19,8 @@ function getData() {
       paintData();
     });
 }
+
+// function paint data search results
 
 function paintData() {
   let html = "";
@@ -36,5 +40,8 @@ function paintData() {
   listContainerElement.innerHTML = html;
 }
 
+// event
+
 btnElement.addEventListener("click", getData);
+
 getData();
