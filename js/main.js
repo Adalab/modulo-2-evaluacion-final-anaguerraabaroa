@@ -19,7 +19,7 @@ function getData() {
     });
 }
 
-/* paint search results and paint selected favourites class function*/
+/* paint search results and add favourite class function*/
 function paintData() {
   let html = "";
   let defaultImage = "//via.placeholder.com/210x295/ffffff/666666/?text=TV";
