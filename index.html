@@ -13,13 +13,19 @@
   </head>
   <body>
     <header class="header" role="banner">
-      <h1 class="header__title">Codeflix</h1>
+      <a href="./index.html" title="Home">
+        <img
+          class="header__logo"
+          src="https://fontmeme.com/permalink/200909/84165089e106b0066fa661862435c23b.png"
+          alt="Logo Codeflix"
+        />
+      </a>
       <h2 class="header__claim">Code & Chill!</h2>
     </header>
     <main class="main" role="main">
       <section class="aside__section">
         <article class="aside__section--search" role="search">
-          <form method="POST" role="post">
+          <form method="POST" role="post" class="form">
             <label for="search" class="label">Buscador de series</label>
             <input
               type="text"
@@ -33,13 +39,14 @@
         </article>
         <article class="aside__section--favourites">
           <h3 class="section__title">Favoritos</h3>
-          <ul class="section__list">
+          <ul class="section__list js-favourites-list">
              <!-- Contenido a incluir desde JS -->
-            <!-- <li class="section__list--movie">
-              <div class="movie__wrapper">
-                <img src="" alt="" class="movie__image" />
-                <h4 class="movie__title"></h4>
-                <button class="movie__button"><i class="fas fa-times-circle"></i></button>
+            <!-- <li class="section__list--show">
+              <div class="show__wrapper">
+                <img src="" alt="" class="show__image" />
+                <h4 class="show__title"></h4>
+                <button class="show__button"><i class="fas fa-times-circle"></i></button>
+              </div>
             </li> -->
           </ul>
         </article>
@@ -47,10 +54,11 @@
       <section class="results__section">
           <ul class="results__section--list js-list-container">
             <!-- Contenido a incluir desde JS -->
-            <!-- <li class="section__list--movie">
-              <div class="movie__wrapper">
-                <img src="" alt="" class="movie__image" />
-                <h4 class="movie__title"></h4>
+            <!-- <li class="section__list--show">
+              <div class="show__wrapper">
+                <img src="" alt="" class="show__image" />
+                <h4 class="show__title"></h4>
+              </div>
           </ul> -->
       </section>
     </main>
