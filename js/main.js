@@ -25,7 +25,7 @@ function getData() {
 /* function: paint search engine results and add class to favourite shows*/
 function paintData() {
   let html = "";
-  let defaultImage = "//via.placeholder.com/210x295/ffffff/666666/?text=TV";
+  let defaultImage = "./images/default_image.jpg";
   for (let i = 0; i < shows.length; i++) {
     let classFav1;
     let classFav2;
@@ -41,7 +41,7 @@ function paintData() {
     html += `<li class="section__list--show"></li>`;
     html += `<div class="show__wrapper js-favourites ${classFav1}" id="${i}">`;
     if (shows[i].show.image === null) {
-      html += `<img src="${defaultImage}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-image" />`;
+      html += `<img src="${defaultImage}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-image"/>`;
     } else {
       html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-image" />`;
     }
