@@ -4,10 +4,13 @@ const inputElement = document.querySelector(".js-input");
 const btnElement = document.querySelector(".js-btn");
 const listContainer = document.querySelector(".js-list-container");
 
+/* original array */
 let shows = [];
+
+/* favourite shows array */
 let favShows = [];
 
-/* get data from server function */
+/* function: server data request */
 function getData() {
   let inputValue = inputElement.value;
   fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
@@ -19,7 +22,7 @@ function getData() {
     });
 }
 
-/* paint search results and add favourite class function*/
+/* function: paint search engine results and add class to favourite shows*/
 function paintData() {
   let html = "";
   let defaultImage = "//via.placeholder.com/210x295/ffffff/666666/?text=TV";
@@ -49,30 +52,29 @@ function paintData() {
   listContainer.innerHTML = html;
 }
 
-/* listen event form button function */
+/* function: listen event (form button) */
 btnElement.addEventListener("click", getData);
 
-function favouritesShows(event) {
-  const clickedItem = parseInt(event.currentTarget.id);
-  const indexFav = favShows.indexOf(clickedItem);
+/* function: select favourite shows */
+function favouriteShows(event) {
+  const selectedItem = parseInt(event.currentTarget.id);
+  const indexFav = favShows.indexOf(selectedItem);
   const isFav = indexFav !== -1;
 
   if (isFav === false) {
-    console.log("lo meto");
-    favShows.push(clickedItem);
+    favShows.push(selectedItem);
   } else {
-    console.log("lo saco");
     favShows.splice(indexFav, 1);
   }
   paintData();
   listenFavourites();
 }
 
-/* listen event favourites function */
+/* function: listen event (select favourite shows) */
 function listenFavourites() {
   const showsItem = document.querySelectorAll(".js-favourites");
   for (const show of showsItem) {
-    show.addEventListener("click", favouritesShows);
+    show.addEventListener("click", favouriteShows);
   }
 }
 
