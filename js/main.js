@@ -1,8 +1,8 @@
 "use strict";
 
-const inputElement = document.querySelector(".js-input");
-const btnElement = document.querySelector(".js-btn");
-const listContainer = document.querySelector(".js-list-container");
+const inputElement = document.querySelector(".js-input"); // text input element
+const btnElement = document.querySelector(".js-btn"); // search button element
+const listContainer = document.querySelector(".js-list-container"); // search results list element
 
 /* original array */
 let shows = [];
@@ -10,7 +10,7 @@ let shows = [];
 /* favourite shows array */
 let favShows = [];
 
-/* function: server data request */
+/* function: API data request */
 function getData() {
   let inputValue = inputElement.value;
   fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
@@ -22,7 +22,7 @@ function getData() {
     });
 }
 
-/* function: paint search engine results and add class to favourite shows*/
+/* function: paint search results and add classes to favourite shows*/
 function paintData() {
   let html = "";
   let defaultImage = "./images/default_image.jpg";
@@ -52,10 +52,10 @@ function paintData() {
   listContainer.innerHTML = html;
 }
 
-/* function: listen event (form button) */
+/* function: listen event (click search button) */
 btnElement.addEventListener("click", getData);
 
-/* function: select favourite shows */
+/* function: select favourite shows and add/remove elements to/from favourite shows array */
 function favouriteShows(event) {
   const selectedItem = parseInt(event.currentTarget.id);
   const indexFav = favShows.indexOf(selectedItem);
@@ -68,15 +68,41 @@ function favouriteShows(event) {
   }
   paintData();
   listenFavourites();
+  paintFavShows();
 }
 
-/* function: listen event (select favourite shows) */
+/* function: paint favourite shows */
+function paintFavShows() {
+  let html = "";
+  let htmlFav = "";
+  for (let i = 0; i < favShows.length; i++) {
+    htmlFav += `<li class="section__list--favshow">`;
+    htmlFav += `<div class="favshow__wrapper" id="${i}"></div>`;
+    if (shows[i].show.image === null) {
+      htmlFav += `<img src="${defaultImage}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-image"/>`;
+    } else {
+      htmlFav += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-image" />`;
+    }
+    htmlFav += ` <h4 class="show__title">${shows[i].show.name}</h4>`;
+    htmlFav += `<button class="show__button"><i class="fas fa-times-circle"></i></button>`;
+    htmlFav += `</div>`;
+    htmlFav += `</li>`;
+  }
+  html += htmlFav;
+  const favouriteList = document.querySelector(".js-favourites-list");
+  favouriteList.innerHTML = htmlFav;
+  listenFavourites();
+}
+
+/* function: listen event (click favourite shows) */
 function listenFavourites() {
   const showsItem = document.querySelectorAll(".js-favourites");
   for (const show of showsItem) {
     show.addEventListener("click", favouriteShows);
   }
 }
+
+/* function: save data in LocalStorage */
 
 /* start web */
 getData();
