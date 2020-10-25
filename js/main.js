@@ -26,11 +26,12 @@ function getData() {
 /* function: paint search results*/
 function paintData() {
   let html = "";
+  let defaultImage = "./images/default_image.jpg";
   for (let i = 0; i < shows.length; i++) {
     html += `<li class="section__list--show"></li>`;
     html += `<div class="show__wrapper js-favourites" data-id="${shows[i].show.id}">`;
     if (shows[i].show.image === null) {
-      html += `<img src="./images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image"/>`;
+      html += `<img src="${defaultImage}"; alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image"/>`;
     } else {
       html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image" />`;
     }
@@ -75,8 +76,11 @@ function paintFavShows() {
     htmlFav += `<li class="section__list--favshow">`;
     htmlFav += `<div class="favshow__wrapper" data-id="${favShows[i].id}">`;
     if (favShows[i].image === null) {
-      htmlFav += `<img src="./images/default_image.jpg" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
+      console.log("dentro if");
+      let defaultImg = "./images/default_image.jpg";
+      htmlFav += `<img src="${defaultImg}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
+      console.log("dentro else");
       htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image" />`;
     }
     htmlFav += `<h4 class="favshow__title">${favShows[i].name}</h4>`;
