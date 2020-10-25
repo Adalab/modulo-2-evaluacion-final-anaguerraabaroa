@@ -74,7 +74,7 @@ function paintFavShows() {
   let htmlFav = "";
   for (let i = 0; i < favShows.length; i++) {
     htmlFav += `<li class="section__list--favshow">`;
-    htmlFav += `<div class="favshow__wrapper" js-favourites data-id="${favShows[i].id}"></div>`;
+    htmlFav += `<div class="favshow__wrapper" data-id="${favShows[i].id}">`;
     if (favShows[i].image === null) {
       htmlFav += `<img src="./images/default_image.jpg" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
@@ -112,6 +112,9 @@ function getLocalStorage() {
 
 /* function: listen event (click search button) */
 btnElement.addEventListener("click", getData);
+
+/* function: listen event (click remove fav shows button) */
+favBtnElement.addEventListener("click", removeFav);
 
 /* start web */
 getData();

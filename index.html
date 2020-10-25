@@ -26,8 +26,8 @@
       <h2 class="header__claim">Code & Chill!</h2>
     </header>
     <main class="main" role="main">
-      <section class="aside__section">
-        <article class="aside__section--search" role="search">
+      <aside class="aside">
+        <section class="aside__search" role="search">
           <form method="POST" role="post" class="form">
             <label for="search" class="label">Buscador de series</label>
             <input
@@ -39,12 +39,12 @@
             />
             <input type="button" value="Buscar" class="btn js-btn" />
           </form>
-        </article>
-        <article class="aside__section--favourites">
-          <h3 class="section__title">Favoritos</h3>
-          <ul class="section__list js-favourites-list"></ul>
-        </article>
-      </section>
+        </section>
+        <section class="aside__favourites">
+          <h3 class="aside__favourites--title">Favoritos</h3>
+          <ul class="aside__favourites--list js-favourites-list"></ul>
+        </section>
+      </aside>
       <section class="results__section">
         <ul class="results__section--list js-list-container"></ul>
       </section>
