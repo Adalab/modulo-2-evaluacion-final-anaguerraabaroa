@@ -1,20 +1,20 @@
-**Módulo 2: Ejercicio de evaluación final**
+**MÓDULO 2: EJERCICIO DE EVALUACIÓN FINAL**
 
 Este es el ejercicio de evaluación final del módulo 2 del curso de Programación Frontend de Adalab Digital.
 
-**Objetivo**
+**OBJETIVO**
 
 - Aplicación web de búsqueda de series.
-- Agregar y eliminar favoritos.
+- Seleccionar series favoritas y agregar/eliminar a listado de favoritos.
 - Guardar datos en LocalStorage.
 
-**Requisitos**
+**REQUISITOS**
 
 - Maquetación sencilla.
 - Diseño sencillo.
 - Aplicar Javascript: constantes, variables, condicionales, arrays, objetos, eventos, funciones y métodos.
 
-**Desarrollo**
+**DESARROLLO**
 
 **HTML**
 
@@ -29,9 +29,9 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 - Aplicación de estilos para obtener un diseño sencillo.
 
-**JavaScript**
+**JAVASCRIPT**
 
-1. Búsqueda:
+**Búsqueda**
 
 - Función para obtener los datos del servidor:
 
@@ -50,7 +50,7 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
   - Para que ambas funciones se desencadenen primero se escucha un evento "click" sobre el botón de búsqueda.
 
-2. Favoritos:
+**Favoritos**
 
 - Función para seleccionar favoritos:
 
@@ -69,7 +69,7 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
   - Para que ambas funciones se desencadenen primero se escucha un evento "click" sobre cada uno de los resultados de búsqueda con un método querySelectorAll.
 
-3. LocalStorage:
+**LocalStorage**
 
 - Función para guardar los datos del array "favShows" en LocalStorage:
 
@@ -80,7 +80,7 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
   - Se recogen los datos guardados en LocalStorage con un método localStorage.getItem, parseando la cadena de caracteres para convertirla de nuevo en un array con el método JSON.parse.
   - Con un condicional se establece que si la respuesta del LocalStorage devuelve datos, estos se deben incluir en el array "favShows".
 
-4. Bonus:
+**Bonus**
 
 - Función para borrar la lista de todos los elementos favoritos, el input value de la búsqueda del usuario y los datos almacenados en LocalStorage.
 
@@ -88,6 +88,6 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
   - Para que la función se desencadenen primero se escucha un evento "click" sobre el botón de reset.
 
-**Resultado**
+**RESULTADO**
 
 - URL: http://beta.adalab.es/modulo-2-evaluacion-final-anaguerraabaroa/
