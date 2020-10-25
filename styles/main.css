@@ -53,6 +53,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: 600;
+  border-right: solid #099d8d;
 }
 
 .form {
