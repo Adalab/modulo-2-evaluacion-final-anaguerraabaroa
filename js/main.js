@@ -96,7 +96,7 @@ function paintFavShows() {
       htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image" />`;
     }
     htmlFav += `<h4 class="favshow__title">${favShows[i].name}</h4>`;
-    htmlFav += `<button class="favshow__button js-fav-btn"><i class="fas fa-times-circle"></i></button>`;
+    htmlFav += `<button class="favshow__button js-fav-btn"><i class="fas fa-times"></i></button>`;
     htmlFav += `</div>`;
     htmlFav += `</li>`;
   }
