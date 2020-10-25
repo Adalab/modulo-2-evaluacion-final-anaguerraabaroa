@@ -1,21 +1,23 @@
 "use strict";
 
-const inputElement = document.querySelector(".js-input"); // text input element
-const btnElement = document.querySelector(".js-btn"); // search button element
-const listContainer = document.querySelector(".js-list-container"); // search results list element
-const favouriteList = document.querySelector(".js-favourites-list"); // favourite shows list element
-const resetBtn = document.querySelector(".js-btn-reset"); // favourite shows list reset button element
+// Elements
 
-/* original array */
-let shows = [];
+const inputElement = document.querySelector(".js-input"); // Text input
+const btnElement = document.querySelector(".js-btn"); // Search button
+const listContainer = document.querySelector(".js-list-container"); // Search results list
+const favouriteList = document.querySelector(".js-favourites-list"); // Favourite shows list
+const resetBtn = document.querySelector(".js-btn-reset"); // Reset button
 
-/* favourite shows array */
-let favShows = [];
+// Arrays
 
-/* favourite shows index array */
-let favShowsId = [];
+let shows = []; // Original shows array
+let favShows = []; // Favourite shows array
+let favShowsId = []; // Favourite shows index array (to add favourite shows into favShows array with indexOf method)
 
-/* function: API data request */
+/*** 1. SEARCH ***/
+
+// Function API data request
+
 function getData() {
   let inputValue = inputElement.value;
   fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
@@ -27,7 +29,8 @@ function getData() {
     });
 }
 
-/* function: paint search results*/
+// Function paint search results and add class to favourite shows once they have been selected
+
 function paintData() {
   let html = "";
   for (let i = 0; i < shows.length; i++) {
@@ -51,10 +54,14 @@ function paintData() {
   listContainer.innerHTML = html;
 }
 
-/* function: listen event (click search button) */
+// Search button listener
+
 btnElement.addEventListener("click", getData);
 
-/* function: select favourite shows and add/remove elements to/from favourite shows array */
+/*** 2. FAVOURITES ***/
+
+// Function select favourite shows and add them into FavShows array
+
 function favouriteShows(event) {
   const currentShow = event.currentTarget;
   const currentShowName = currentShow.querySelector(".js-show-title");
@@ -83,11 +90,12 @@ function favouriteShows(event) {
   setLocalStorage();
 }
 
-/* function: paint favourite shows */
+// Function paint favourite shows
+
 function paintFavShows() {
   let htmlFav = "";
   for (let i = 0; i < favShows.length; i++) {
-    htmlFav += `<li class="section__list--favshow">`;
+    htmlFav += `<li class="section__list--favshow js-fav-show">`;
     htmlFav += `<div class="favshow__wrapper" data-id="${favShows[i].id}">`;
     if (favShows[i].image === null) {
       let defaultImg = "./images/default_image.jpg";
@@ -103,7 +111,8 @@ function paintFavShows() {
   favouriteList.innerHTML = htmlFav;
 }
 
-/* function: listen event (click favourite shows) */
+// Listener search results list
+
 function listenFavourites() {
   const showsItem = document.querySelectorAll(".js-favourites");
   for (const show of showsItem) {
@@ -111,25 +120,15 @@ function listenFavourites() {
   }
 }
 
-/* function: reset favourite shows list */
-function handleReset() {
-  favShows = [];
-  inputElement.value = "";
-  localStorage.removeItem("favShows");
-  paintFavShows();
-  paintData();
-  listenFavourites();
-}
+/*** 3. LOCAL STORAGE ***/
 
-/* function: listen event (click reset button) */
-resetBtn.addEventListener("click", handleReset);
+// Function save data in LocalStorage
 
-/* function: save data in LocalStorage */
 function setLocalStorage() {
   localStorage.setItem("favShows", JSON.stringify(favShows));
 }
 
-/* function: get data from LocalStorage */
+// Function: get data from LocalStorage
 function getLocalStorage() {
   const localFavShows = JSON.parse(localStorage.getItem("favShows"));
   if (localFavShows !== null) {
@@ -139,6 +138,26 @@ function getLocalStorage() {
   }
 }
 
-/* start web */
+/*** 4. BONUS ***/
+
+// Function reset favourite shows list
+
+function handleReset() {
+  favShows = [];
+  inputElement.value = "";
+  localStorage.removeItem("favShows");
+  paintFavShows();
+  paintData();
+  listenFavourites();
+}
+
+// Listener reset button
+
+resetBtn.addEventListener("click", handleReset);
+
+/*** 5. DEFAULT ***/
+
+// Function default calls
+
 getLocalStorage();
 getData();
