@@ -67,6 +67,7 @@ function favouriteShows(event) {
     favShows.push(favShowItem);
     paintFavShows();
   }
+  setLocalStorage();
 }
 
 /* function: paint favourite shows */
@@ -106,10 +107,13 @@ function setLocalStorage() {
 
 /* function: get data from LocalStorage */
 function getLocalStorage() {
-  const localFavShows = localStorage.getItem("favShows");
-  const localFavShowsJS = JSON.parse(localFavShows);
-  if (localFavShows !== null) {
-    favShows = localFavShowsJS;
+  const localFavShows = JSON.parse(localStorage.getItem("favShows"));
+  if (localFavShows === null) {
+    getData();
+  } else {
+    favShows = localFavShows;
+    paintFavShows();
+    listenFavourites();
   }
 }
 
@@ -117,4 +121,5 @@ function getLocalStorage() {
 btnElement.addEventListener("click", getData);
 
 /* start web */
+getLocalStorage();
 getData();
