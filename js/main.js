@@ -51,6 +51,9 @@ function paintData() {
   listContainer.innerHTML = html;
 }
 
+/* function: listen event (click search button) */
+btnElement.addEventListener("click", getData);
+
 /* function: select favourite shows and add/remove elements to/from favourite shows array */
 function favouriteShows(event) {
   const currentShow = event.currentTarget;
@@ -108,6 +111,19 @@ function listenFavourites() {
   }
 }
 
+/* function: reset favourite shows list */
+function handleReset() {
+  favShows = [];
+  inputElement.value = "";
+  localStorage.removeItem("favShows");
+  paintFavShows();
+  paintData();
+  listenFavourites();
+}
+
+/* function: listen event (click reset button) */
+resetBtn.addEventListener("click", handleReset);
+
 /* function: save data in LocalStorage */
 function setLocalStorage() {
   localStorage.setItem("favShows", JSON.stringify(favShows));
@@ -122,22 +138,6 @@ function getLocalStorage() {
     listenFavourites();
   }
 }
-
-/* function: listen event (click search button) */
-btnElement.addEventListener("click", getData);
-
-/* reset */
-
-function handleReset() {
-  favShows = [];
-  localStorage.removeItem("favShows");
-  paintFavShows();
-  listenFavourites();
-  setLocalStorage();
-}
-
-/* function: listen event (click reset button) */
-resetBtn.addEventListener("click", handleReset);
 
 /* start web */
 getLocalStorage();

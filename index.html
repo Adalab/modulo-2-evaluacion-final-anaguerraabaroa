@@ -29,19 +29,21 @@
       <aside class="aside">
         <section class="aside__search" role="search">
           <form method="POST" role="post" class="form">
-            <label for="search" class="label">Buscador de series</label>
+            <label for="search" class="label"
+              ><i class="fas fa-search"></i>What's on Codeflix?</label
+            >
             <input
               type="text"
               id="search"
               name="search"
-              placeholder="Encuentra tu serie favorita"
+              placeholder="Find your favourite TV shows"
               class="input js-input"
             />
-            <input type="button" value="Buscar" class="btn js-btn" />
+            <input type="button" value="Search" class="btn js-btn" />
           </form>
         </section>
         <section class="aside__favourites">
-          <h3 class="aside__favourites--title">Favoritos</h3>
+          <h3 class="aside__favourites--title">My list</h3>
           <button type="button" class="btn__reset js-btn-reset">Reset</button>
           <ul class="aside__favourites--list js-favourites-list"></ul>
         </section>

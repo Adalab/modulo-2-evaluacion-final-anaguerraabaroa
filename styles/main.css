@@ -47,7 +47,6 @@ body {
 /* search section */
 
 .aside {
-  width: 20%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -57,13 +56,18 @@ body {
 }
 
 .form {
-  width: 200px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
+.fa-search {
+  margin-right: 10px;
+}
+
 .label {
-  margin: 5px;
+  font-size: 30px;
+  margin-bottom: 5px;
 }
 
 .input {
@@ -71,16 +75,17 @@ body {
   margin: 5px;
 }
 .input[placeholder] {
-  padding: 5px;
+  padding: 10px;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: 400;
+  border: solid #099d8d;
 }
 
 .btn {
   width: 100px;
   padding: 10px;
-  margin: 5px;
+  margin: 10px 0 30px 5px;
   background-color: #099d8d;
   color: #ffffff;
   border-radius: 5px;
@@ -105,11 +110,12 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: 600;
+  border-top: solid #099d8d;
 }
 
 .aside__favourites--list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   list-style-type: none;
   margin: 0;
@@ -126,11 +132,8 @@ body {
   margin: 10px;
   background-color: #d5d5d5;
   border-radius: 10px;
+  border: solid #099d8d;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
-}
-
-.hidden {
-  display: none;
 }
 
 .favshow__image {
@@ -153,7 +156,7 @@ body {
 /* results section */
 
 .results__section {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   font-family: "Open Sans", sans-serif;
@@ -183,6 +186,7 @@ body {
   padding: 40px 10px 5px 10px;
   background-color: #099d8d;
   cursor: pointer;
+  border: solid #099d8d;
   border-radius: 20px;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
 }
@@ -209,8 +213,12 @@ body {
 /* Reset */
 
 .btn__reset {
-  width: 100px;
-  padding: 10px;
+  position: relative;
+  bottom: 60px;
+  left: 90px;
+  width: 60px;
+  height: 30px;
+  padding: auto;
   margin: 5px;
   background-color: #099d8d;
   color: #ffffff;
@@ -219,8 +227,13 @@ body {
   outline: none;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
   font-family: "Open Sans", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: background-color ease 0.5s;
+}
+
+.btn__reset:hover {
+  background-color: #ffffff;
+  color: #099d8d;
 }
