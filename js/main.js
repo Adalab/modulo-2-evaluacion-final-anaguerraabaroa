@@ -7,6 +7,7 @@ const btnElement = document.querySelector(".js-btn"); // Search button
 const listContainer = document.querySelector(".js-list-container"); // Search results list
 const favouriteList = document.querySelector(".js-favourites-list"); // Favourite shows list
 const resetBtn = document.querySelector(".js-btn-reset"); // Reset button
+// const removeBtn = document.querySelectorAll(".js-fav-btn"); // Remove from favourite list button
 
 // Arrays
 
@@ -137,6 +138,18 @@ function getLocalStorage() {
     listenFavourites();
   }
 }
+
+// Attempt to remove from favourite list
+
+// function removeFavShows(event) {
+//   const favBtn = event.currentTarget.id;
+//   const favWrapper = document.querySelector(".js-fav-show" + favBtn);
+//   favWrapper.classList.add("hidden");
+// }
+
+// for (let i = 0; i < removeBtn.length; i++) {
+//   removeBtn[i].addEventListener("click", removeFavShows);
+// }
 
 /*** 4. BONUS ***/
 

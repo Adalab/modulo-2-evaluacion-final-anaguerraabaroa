@@ -123,6 +123,10 @@ body {
   padding: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 .favshow__wrapper {
   display: flex;
   flex-direction: row;
@@ -244,7 +248,7 @@ body {
 
 .footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-end;
   position: fixed;
   bottom: 0;
@@ -254,13 +258,15 @@ body {
 }
 
 .small {
-  position: relative;
-  top: 10px;
   color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 10px 10px;
+}
+
+.fa-globe-americas {
+  margin-left: 5px;
 }
