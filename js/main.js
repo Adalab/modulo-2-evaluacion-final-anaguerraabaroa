@@ -113,8 +113,5 @@ function getLocalStorage() {
 /* function: listen event (click search button) */
 btnElement.addEventListener("click", getData);
 
-/* function: listen event (click remove fav shows button) */
-favBtnElement.addEventListener("click", removeFav);
-
 /* start web */
 getData();
