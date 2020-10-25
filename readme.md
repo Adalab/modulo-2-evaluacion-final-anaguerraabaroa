@@ -86,7 +86,7 @@ Este es el ejercicio de evaluaci처n final del m처dulo 2 del curso de Programaci�
 
 - Listener bot처n de reset:
 
-  - Para que la funci처n se desencadenen primero se escucha un evento "click" sobre el bot처n de reset.
+  - Para que la funci처n se desencadene primero se escucha un evento "click" sobre el bot처n de reset.
 
 **RESULTADO**
 
