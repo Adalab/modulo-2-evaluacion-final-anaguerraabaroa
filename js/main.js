@@ -19,7 +19,6 @@ function getData() {
     .then((data) => {
       shows = data;
       paintData();
-      listenSearchbtn();
       listenFavourites();
     });
 }
@@ -27,27 +26,15 @@ function getData() {
 /* function: paint search results and add classes to favourite shows*/
 function paintData() {
   let html = "";
-  let defaultImage = "./images/default_image.jpg";
   for (let i = 0; i < shows.length; i++) {
-    let classFav1;
-    let classFav2;
-    const favIndex = favShows.indexOf(i);
-    const fav = favIndex !== -1;
-    if (fav === true) {
-      classFav1 = "show__wrapper--fav";
-      classFav2 = "show__title--fav";
-    } else {
-      classFav1 = "";
-      classFav2 = "";
-    }
     html += `<li class="section__list--show"></li>`;
-    html += `<div class="show__wrapper js-favourites ${classFav1}" id="${i}">`;
+    html += `<div class="show__wrapper js-favourites" data-id="${shows[i].show.id}">`;
     if (shows[i].show.image === null) {
-      html += `<img src="${defaultImage}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image"/>`;
+      html += `<img src="./images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image"/>`;
     } else {
-      html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image" />`;
+      html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image" />`;
     }
-    html += `<h4 class="show__title ${classFav2}">${shows[i].show.name}</h4>`;
+    html += `<h4 class="show__title js-show-title">${shows[i].show.name}</h4>`;
     html += `</div>`;
     html += `</li>`;
   }
@@ -56,34 +43,44 @@ function paintData() {
 
 /* function: select favourite shows and add/remove elements to/from favourite shows array */
 function favouriteShows(event) {
-  const selectedItem = parseInt(event.currentTarget.id);
-  const indexFav = favShows.indexOf(selectedItem);
-  const isFav = indexFav !== -1;
+  const clickedShow = event.currentTarget;
+  const clickedShowId = parseInt(clickedShow.dataset.id);
+  console.log(clickedShow);
+  const clickedShowName = clickedShow.querySelector(".js-show-title").innerHTML;
+  const clickedShowImage = clickedShow.querySelector(".js-show-image").src;
 
-  if (isFav === false) {
-    favShows.push(selectedItem);
-  } else {
+  let favShowItem = {
+    id: clickedShowId,
+    name: clickedShowName,
+    image: clickedShowImage,
+  };
+
+  const indexFav = favShows.indexOf(favShowItem);
+  if (
+    clickedShow.classList.contains("show__wrapper--fav", "show__title--fav")
+  ) {
+    clickedShow.classList.remove("show__wrapper--fav", "show__title--fav");
     favShows.splice(indexFav, 1);
+    paintFavShows();
+  } else {
+    clickedShow.classList.add("show__wrapper--fav", "show__title--fav");
+    favShows.push(favShowItem);
+    paintFavShows();
   }
-  paintData();
-  listenFavourites();
-  paintFavShows();
-  setLocalStorage();
 }
 
 /* function: paint favourite shows */
 function paintFavShows() {
   let htmlFav = "";
-  let defaultImage = "./images/default_image.jpg";
   for (let i = 0; i < favShows.length; i++) {
     htmlFav += `<li class="section__list--favshow">`;
-    htmlFav += `<div class="favshow__wrapper" js-favourites id="${i}"></div>`;
-    if (favShows[i].show.image === null) {
-      htmlFav += `<img src="${defaultImage}" alt="Imagen de la serie ${favShows[i].show.name}" class="favshow__image"/>`;
+    htmlFav += `<div class="favshow__wrapper" js-favourites data-id="${favShows[i].id}"></div>`;
+    if (favShows[i].image === null) {
+      htmlFav += `<img src="./images/default_image.jpg" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
-      htmlFav += `<img src="${favShows[i].show.image.medium}" alt="Imagen de la serie ${favShows[i].show.name}" class="favshow__image" />`;
+      htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image" />`;
     }
-    htmlFav += ` <h4 class="favshow__title">${favShows[i].show.name}</h4>`;
+    htmlFav += `<h4 class="favshow__title">${favShows[i].name}</h4>`;
     htmlFav += `<button class="favshow__button"><i class="fas fa-times-circle"></i></button>`;
     htmlFav += `</div>`;
     htmlFav += `</li>`;
@@ -114,9 +111,7 @@ function getLocalStorage() {
 }
 
 /* function: listen event (click search button) */
-function listenSearchbtn() {
-  btnElement.addEventListener("click", getData);
-}
+btnElement.addEventListener("click", getData);
 
 /* start web */
 getData();
