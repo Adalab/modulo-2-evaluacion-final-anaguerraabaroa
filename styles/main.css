@@ -205,3 +205,22 @@ body {
 .show__title--fav {
   color: #099d8d;
 }
+
+/* Reset */
+
+.btn__reset {
+  width: 100px;
+  padding: 10px;
+  margin: 5px;
+  background-color: #099d8d;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color ease 0.5s;
+}

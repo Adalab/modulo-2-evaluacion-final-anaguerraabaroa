@@ -4,6 +4,7 @@ const inputElement = document.querySelector(".js-input"); // text input element
 const btnElement = document.querySelector(".js-btn"); // search button element
 const listContainer = document.querySelector(".js-list-container"); // search results list element
 const favouriteList = document.querySelector(".js-favourites-list"); // favourite shows list element
+const resetBtn = document.querySelector(".js-btn-reset"); // favourite shows list reset button element
 
 /* original array */
 let shows = [];
@@ -30,7 +31,7 @@ function getData() {
 function paintData() {
   let html = "";
   for (let i = 0; i < shows.length; i++) {
-    let classFav = "";
+    let classFav;
     html += `<li class="section__list--show"></li>`;
     for (let j = 0; j < favShows.length; j++) {
       if (parseInt(favShows[j].id) === shows[i].show.id) {
@@ -124,6 +125,19 @@ function getLocalStorage() {
 
 /* function: listen event (click search button) */
 btnElement.addEventListener("click", getData);
+
+/* reset */
+
+function handleReset() {
+  favShows = [];
+  localStorage.removeItem("favShows");
+  paintFavShows();
+  listenFavourites();
+  setLocalStorage();
+}
+
+/* function: listen event (click reset button) */
+resetBtn.addEventListener("click", handleReset);
 
 /* start web */
 getLocalStorage();
