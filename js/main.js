@@ -11,6 +11,9 @@ let shows = [];
 /* favourite shows array */
 let favShows = [];
 
+/* favourite shows index array */
+let favShowsId = [];
+
 /* function: API data request */
 function getData() {
   let inputValue = inputElement.value;
@@ -26,12 +29,17 @@ function getData() {
 /* function: paint search results*/
 function paintData() {
   let html = "";
-  let defaultImage = "./images/default_image.jpg";
   for (let i = 0; i < shows.length; i++) {
+    let classFav = "";
     html += `<li class="section__list--show"></li>`;
-    html += `<div class="show__wrapper js-favourites" data-id="${shows[i].show.id}">`;
+    for (let j = 0; j < favShows.length; j++) {
+      if (parseInt(favShows[j].id) === shows[i].show.id) {
+        classFav = "show__wrapper--fav show__title--fav";
+      }
+    }
+    html += `<div class="show__wrapper js-favourites ${classFav}" data-id="${shows[i].show.id}">`;
     if (shows[i].show.image === null) {
-      html += `<img src="${defaultImage}"; alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image"/>`;
+      html += `<img src="./images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image"/>`;
     } else {
       html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image" />`;
     }
@@ -44,29 +52,30 @@ function paintData() {
 
 /* function: select favourite shows and add/remove elements to/from favourite shows array */
 function favouriteShows(event) {
-  const clickedShow = event.currentTarget;
-  const clickedShowId = parseInt(clickedShow.dataset.id);
-  const clickedShowName = clickedShow.querySelector(".js-show-title").innerHTML;
-  const clickedShowImage = clickedShow.querySelector(".js-show-image").src;
+  const currentShow = event.currentTarget;
+  const currentShowName = currentShow.querySelector(".js-show-title");
+  const currentShowImage = currentShow.querySelector(".js-show-image");
 
-  let favShowItem = {
-    id: clickedShowId,
-    name: clickedShowName,
-    image: clickedShowImage,
+  const objFavShow = {
+    name: currentShowName.innerHTML,
+    image: currentShowImage.src,
+    id: event.currentTarget.dataset.id,
   };
 
-  const indexFav = favShows.indexOf(favShowItem);
-  if (
-    clickedShow.classList.contains("show__wrapper--fav", "show__title--fav")
-  ) {
-    clickedShow.classList.remove("show__wrapper--fav", "show__title--fav");
-    favShows.splice(indexFav, 1);
-    paintFavShows();
+  const clickedShow = parseInt(currentShow.dataset.id);
+  favShowsId = favShows.map(function (element) {
+    return parseInt(element.id);
+  });
+
+  const indexFav = favShowsId.indexOf(clickedShow);
+  if (indexFav === -1) {
+    favShows.push(objFavShow);
   } else {
-    clickedShow.classList.add("show__wrapper--fav", "show__title--fav");
-    favShows.push(favShowItem);
-    paintFavShows();
+    favShows.splice(indexFav, 1);
   }
+  paintFavShows();
+  paintData();
+  listenFavourites();
   setLocalStorage();
 }
 
@@ -77,15 +86,13 @@ function paintFavShows() {
     htmlFav += `<li class="section__list--favshow">`;
     htmlFav += `<div class="favshow__wrapper" data-id="${favShows[i].id}">`;
     if (favShows[i].image === null) {
-      console.log("dentro if");
       let defaultImg = "./images/default_image.jpg";
       htmlFav += `<img src="${defaultImg}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
-      console.log("dentro else");
       htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image" />`;
     }
     htmlFav += `<h4 class="favshow__title">${favShows[i].name}</h4>`;
-    htmlFav += `<button class="favshow__button"><i class="fas fa-times-circle"></i></button>`;
+    htmlFav += `<button class="favshow__button js-fav-btn"><i class="fas fa-times-circle"></i></button>`;
     htmlFav += `</div>`;
     htmlFav += `</li>`;
   }
@@ -108,9 +115,7 @@ function setLocalStorage() {
 /* function: get data from LocalStorage */
 function getLocalStorage() {
   const localFavShows = JSON.parse(localStorage.getItem("favShows"));
-  if (localFavShows === null) {
-    getData();
-  } else {
+  if (localFavShows !== null) {
     favShows = localFavShows;
     paintFavShows();
     listenFavourites();
