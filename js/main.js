@@ -23,7 +23,7 @@ function getData() {
     });
 }
 
-/* function: paint search results and add classes to favourite shows*/
+/* function: paint search results*/
 function paintData() {
   let html = "";
   for (let i = 0; i < shows.length; i++) {
@@ -45,7 +45,6 @@ function paintData() {
 function favouriteShows(event) {
   const clickedShow = event.currentTarget;
   const clickedShowId = parseInt(clickedShow.dataset.id);
-  console.log(clickedShow);
   const clickedShowName = clickedShow.querySelector(".js-show-title").innerHTML;
   const clickedShowImage = clickedShow.querySelector(".js-show-image").src;
 
