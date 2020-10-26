@@ -98,8 +98,7 @@ function paintFavShows() {
     htmlFav += `<li class="section__list--favshow js-fav-show">`;
     htmlFav += `<div class="favshow__wrapper" data-id="${favShows[i].id}">`;
     if (favShows[i].image === null) {
-      let defaultImg = "./images/default_image.jpg";
-      htmlFav += `<img src="${defaultImg}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
+      htmlFav += `<img src="./images/default_image.jpg" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
       htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image" />`;
     }
