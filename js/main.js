@@ -157,7 +157,7 @@ resetBtn.addEventListener("click", handleReset);
 
 /*** 5. DEFAULT ***/
 
-// Function default calls
+// Function default calls start app
 
 getLocalStorage();
 getData();
