@@ -18,9 +18,9 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 ---
 
-- Maquetación sencilla.
-- Diseño sencillo.
-- Aplicar Javascript: constantes, variables, condicionales, arrays, objetos, eventos, funciones y métodos.
+- Maquetación HTML.
+- Aplicar estilos con CSS.
+- Aplicar conocimientos Javascript: constantes, variables, condicionales, arrays, objetos, eventos, funciones y métodos.
 
 #### **DESARROLLO**
 
@@ -28,7 +28,8 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 ##### **HTML**
 
-- Estructura básica de la aplicación en HTML aplicando semántica, BEM y clases:
+- Estructura base de la aplicación en HTML aportando semántica y clases (BEM).
+- Consta de:
 
   - Header
   - Aside: formulario + sección favoritos
@@ -40,6 +41,8 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 - Aplicación de estilos para obtener un diseño sencillo.
 
 ##### **JAVASCRIPT**
+
+- El ejercicio solicita varios procesos:
 
 ##### **1.-Búsqueda**
 
