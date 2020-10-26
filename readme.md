@@ -2,9 +2,13 @@
 
 ### **MÓDULO 2: EJERCICIO DE EVALUACIÓN FINAL**
 
+---
+
 Este es el ejercicio de evaluación final del módulo 2 del curso de Programación Frontend de Adalab Digital.
 
 #### **OBJETIVO**
+
+---
 
 - Aplicación web de búsqueda de series.
 - Seleccionar series favoritas y agregar/eliminar a listado de favoritos.
@@ -12,13 +16,19 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 #### **REQUISITOS**
 
+---
+
 - Maquetación sencilla.
 - Diseño sencillo.
 - Aplicar Javascript: constantes, variables, condicionales, arrays, objetos, eventos, funciones y métodos.
 
 #### **DESARROLLO**
 
+---
+
 ##### **HTML**
+
+---
 
 - Estructura básica de la aplicación en HTML aplicando semántica, BEM y clases:
 
@@ -29,9 +39,13 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 ##### **CSS**
 
+---
+
 - Aplicación de estilos para obtener un diseño sencillo.
 
 ##### **JAVASCRIPT**
+
+---
 
 ##### **1.- Búsqueda**
 
@@ -93,5 +107,7 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
   - Para que la función se desencadene primero se escucha un evento "click" sobre el botón de reset.
 
 ##### **RESULTADO**
+
+---
 
 - URL: http://beta.adalab.es/modulo-2-evaluacion-final-anaguerraabaroa/
