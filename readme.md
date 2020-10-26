@@ -35,7 +35,7 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 - Función para obtener los datos del servidor: **_getData()_**
 
-  - Petición fetch: petición al endpoint del API de Tvmaze incluyendo el input value de la búsqueda del usuario.
+  - Petición fetch: petición de datos al API de Tvmaze sumando el input value de la búsqueda del usuario al endpoint de base.
   - Promesa: el servidor devuelve una respuesta con un archivo JSON.
   - Promesa: se recoge la respuesta y se utilizan los datos para conformar el array "shows".
 
@@ -55,9 +55,9 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 - Función para seleccionar favoritos: **_favouriteShows(event)_**
 
   - Se declara un nuevo array "favShows" vacío para rellenarlo con los elementos favoritos de los usuarios.
-  - Para trabajar de manera más eficiente se crea un nuevo objeto únicamento con los datos del array que interesa almacenar.
+  - Para trabajar de manera más eficiente se crea un nuevo objeto únicamento con los datos del array que interesa almacenar (name, image e id).
   - Para incluir la información de cada objeto dentro del array se utiliza el método indexOf. Como este método sólo admite trabajar con índices declaramos un nuevo array únicamente con los índices de cada elemento.
-  - Con un condicional se compara los índices de cada elemento con el elemento seleccionado por el usuario y si el método indexOf no lo encuentra lo incluye dentro del array "favShows" con un método push y si lo encuentra lo elimina con un método splice.
+  - Con un condicional se comparan los índices de cada elemento con el elemento seleccionado por el usuario y si el método indexOf no lo encuentra lo incluye dentro del array "favShows" con un método push y si lo encuentra lo elimina con un método splice.
 
 - Función para pintar favoritos: **_paintFavShows()_**
 
@@ -82,7 +82,9 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 ##### **4.- Bonus**
 
-- Función para borrar la lista de todos los elementos favoritos, el input value de la búsqueda del usuario y los datos almacenados en LocalStorage: **_handleReset()_**
+- Función para borrar la lista completa de favoritos: **_handleReset()_**
+
+  - Se vacía el array de "favShows", se vacía el input value de la búsqueda del usuario y los datos almacenados en LocalStorage.
 
 - Listener botón de reset: **_resetBtn.addEventListener("click", handleReset)_**
 

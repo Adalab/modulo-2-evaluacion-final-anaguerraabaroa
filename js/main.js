@@ -29,7 +29,7 @@ function getData() {
     });
 }
 
-// Function paint search results and add class to favourite shows once they have been selected
+// Function paint search results (initial for [i]) and add class to favourite shows once they have been selected (secondary for [j])
 
 function paintData() {
   let html = "";
@@ -128,7 +128,7 @@ function setLocalStorage() {
   localStorage.setItem("favShows", JSON.stringify(favShows));
 }
 
-// Function: get data from LocalStorage
+// Function get data from LocalStorage
 function getLocalStorage() {
   const localFavShows = JSON.parse(localStorage.getItem("favShows"));
   if (localFavShows !== null) {
