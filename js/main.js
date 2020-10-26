@@ -41,7 +41,7 @@ function paintData() {
         classFav = "show__wrapper--fav show__title--fav";
       }
     }
-    html += `<div class="show__wrapper js-favourites ${classFav}" data-id="${shows[i].show.id}">`;
+    html += `<div class="show__wrapper js-favourites ${classFav}" id="${shows[i].show.id}">`;
     if (shows[i].show.image === null) {
       html += `<img src="./images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image"/>`;
     } else {
@@ -70,10 +70,10 @@ function favouriteShows(event) {
   const objFavShow = {
     name: currentShowName.innerHTML,
     image: currentShowImage.src,
-    id: currentShow.dataset.id,
+    id: currentShow.id,
   };
 
-  const clickedShow = parseInt(currentShow.dataset.id);
+  const clickedShow = parseInt(currentShow.id);
   favShowsId = favShows.map(function (element) {
     return parseInt(element.id);
   });
@@ -96,7 +96,7 @@ function paintFavShows() {
   let htmlFav = "";
   for (let i = 0; i < favShows.length; i++) {
     htmlFav += `<li class="section__list--favshow js-fav-show">`;
-    htmlFav += `<div class="favshow__wrapper" data-id="${favShows[i].id}">`;
+    htmlFav += `<div class="favshow__wrapper" id="${favShows[i].id}">`;
     if (favShows[i].image === null) {
       htmlFav += `<img src="./images/default_image.jpg" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
