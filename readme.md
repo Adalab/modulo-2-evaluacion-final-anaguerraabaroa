@@ -1,3 +1,5 @@
+![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
+
 ### **MÓDULO 2: EJERCICIO DE EVALUACIÓN FINAL**
 
 Este es el ejercicio de evaluación final del módulo 2 del curso de Programación Frontend de Adalab Digital.

@@ -7,6 +7,7 @@ const btnElement = document.querySelector(".js-btn"); // Search button
 const listContainer = document.querySelector(".js-list-container"); // Search results list
 const favouriteList = document.querySelector(".js-favourites-list"); // Favourite shows list
 const resetBtn = document.querySelector(".js-btn-reset"); // Reset button
+const removeBtn = document.querySelector(".js-fav-btn");
 
 // Arrays
 
@@ -154,6 +155,14 @@ function handleReset() {
 // Listener reset button
 
 resetBtn.addEventListener("click", handleReset);
+
+// Function remove favourite show from favourite list
+
+for (let i = 0; i < removeBtn.length; i++) {
+  removeBtn[i].addEventListener("click", removeFavShow);
+}
+
+function removeFavShow() {}
 
 /*** 5. DEFAULT ***/
 
