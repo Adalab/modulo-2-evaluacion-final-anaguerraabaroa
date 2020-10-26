@@ -70,7 +70,7 @@ function favouriteShows(event) {
   const objFavShow = {
     name: currentShowName.innerHTML,
     image: currentShowImage.src,
-    id: event.currentTarget.dataset.id,
+    id: currentShow.dataset.id,
   };
 
   const clickedShow = parseInt(currentShow.dataset.id);
