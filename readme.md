@@ -28,8 +28,6 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 ##### **HTML**
 
----
-
 - Estructura básica de la aplicación en HTML aplicando semántica, BEM y clases:
 
   - Header
@@ -39,15 +37,11 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
 
 ##### **CSS**
 
----
-
 - Aplicación de estilos para obtener un diseño sencillo.
 
 ##### **JAVASCRIPT**
 
----
-
-##### **1.- Búsqueda**
+##### **1.-Búsqueda**
 
 - Función para obtener los datos del servidor: **_getData()_**
 
