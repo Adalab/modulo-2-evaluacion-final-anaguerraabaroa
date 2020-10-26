@@ -44,7 +44,7 @@ Este es el ejercicio de evaluación final del módulo 2 del curso de Programaci�
   - Se declara una variable vacía y se recorre el array con un bucle for clásico para rellenarla con los elementos que se quiere pintar en el HTML.
   - Se accede a las propiedades del array que interesa utilizar de forma dinámica y se interpolan en los elementos.
   - Finalmente se pinta la información en el HTML utilizando un método innerHTML sobre el elemento contenedor.
-  - También se utiliza esta función para recorrer con un bucle for clásico anidado el array "favShows" cuando un usuario selecciona un favorito. Si el índice del elemento seleccionado coincide con el índice del elemento de la búsqueda se añade una clase para marcar el elemento como favorito.
+  - Una vez que el usuario ha seleccionado un favorito también se utiliza esta función para recorrer con un bucle for clásico anidado el array "favShows". Si el índice del elemento seleccionado coincide con el índice del elemento de la búsqueda se añade una clase para marcar el elemento como favorito.
 
 - Listener botón de búsqueda: **_btnElement.addEventListener("click", getData)_**
 
