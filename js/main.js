@@ -85,6 +85,7 @@ function favouriteShows(event) {
     favShows.splice(indexFav, 1);
   }
   paintFavShows();
+  listenRemoveBtn();
   paintData();
   listenFavourites();
   setLocalStorage();
@@ -134,6 +135,7 @@ function getLocalStorage() {
   if (localFavShows !== null) {
     favShows = localFavShows;
     paintFavShows();
+    listenRemoveBtn();
     listenFavourites();
   }
 }
@@ -147,6 +149,7 @@ function handleReset() {
   inputElement.value = "";
   localStorage.removeItem("favShows");
   paintFavShows();
+  listenRemoveBtn();
   paintData();
   listenFavourites();
 }
@@ -155,9 +158,34 @@ function handleReset() {
 
 resetBtn.addEventListener("click", handleReset);
 
+// Function to remove favourites from favourite shows list
+
+function removeFavShow(event) {
+  for (let i = 0; i < favShows.length; i++) {
+    const removeBtnid = parseInt(event.target.id);
+    const idFavShow = parseInt(favShows[i].id);
+    if (removeBtnid === idFavShow) {
+      favShows.splice([i], 1);
+    }
+  }
+  paintFavShows();
+  listenRemoveBtn();
+  paintData();
+  listenFavourites();
+  setLocalStorage();
+}
+
+// Listener remove shows from favourite list
+
+function listenRemoveBtn() {
+  const removeBtns = document.querySelectorAll(".js-fav-btn");
+  for (const removeBtn of removeBtns) {
+    removeBtn.addEventListener("click", removeFavShow);
+  }
+}
+
 /*** 5. DEFAULT ***/
 
 // Function default calls start app
-
 getLocalStorage();
 getData();
