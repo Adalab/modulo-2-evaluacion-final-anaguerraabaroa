@@ -29,7 +29,7 @@ function getData() {
     });
 }
 
-// Function paint search results (for [i]) and add class to favourite shows once they have been clicked (for [j]) if both array index match
+// Function paint search results (initial for [i]) and add class to favourite shows once they have been selected (secondary for [j])
 
 function paintData() {
   let html = "";
@@ -54,16 +54,18 @@ function paintData() {
   listContainer.innerHTML = html;
 }
 
+// Search button listener
+
+btnElement.addEventListener("click", getData);
+
 /*** 2. FAVOURITES ***/
 
-// Function select favourite shows and add/remove them into/from FavShows array
+// Function select favourite shows and add them into FavShows array
 
 function favouriteShows(event) {
   const currentShow = event.currentTarget;
   const currentShowName = currentShow.querySelector(".js-show-title");
   const currentShowImage = currentShow.querySelector(".js-show-image");
-
-  // Create a new simplify object with needed properties
 
   const objFavShow = {
     name: currentShowName.innerHTML,
@@ -71,17 +73,10 @@ function favouriteShows(event) {
     id: currentShow.id,
   };
 
-  // Select the property id in order to use indexOf method
-
   const clickedShow = parseInt(currentShow.id);
-
-  // Create a new favourite shows index array in order to use indexOf method
-
   favShowsId = favShows.map(function (element) {
     return parseInt(element.id);
   });
-
-  // Use indexOf method to verify if the clicked show id is in favShowsId array to add or remove it from favourite shows array
 
   const indexFav = favShowsId.indexOf(clickedShow);
   if (indexFav === -1) {
@@ -101,14 +96,15 @@ function paintFavShows() {
   let htmlFav = "";
   for (let i = 0; i < favShows.length; i++) {
     htmlFav += `<li class="section__list--favshow js-fav-show">`;
-    htmlFav += `<div class="favshow__wrapper" id="${favShows[i].id}">`;
+    htmlFav += `<div class="favshow__wrapper">`;
     if (favShows[i].image === null) {
-      htmlFav += `<img src="./images/default_image.jpg" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
+      let defaultImg = "./images/default_image.jpg";
+      htmlFav += `<img src="${defaultImg}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image"/>`;
     } else {
       htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favshow__image" />`;
     }
     htmlFav += `<h4 class="favshow__title">${favShows[i].name}</h4>`;
-    htmlFav += `<button class="favshow__button js-fav-btn"><i class="fas fa-times"></i></button>`;
+    htmlFav += `<button class="favshow__button js-fav-btn"><i class="fas fa-times" id="${favShows[i].id}"></i></button>`;
     htmlFav += `</div>`;
     htmlFav += `</li>`;
   }
@@ -133,7 +129,6 @@ function setLocalStorage() {
 }
 
 // Function get data from LocalStorage
-
 function getLocalStorage() {
   const localFavShows = JSON.parse(localStorage.getItem("favShows"));
   if (localFavShows !== null) {
