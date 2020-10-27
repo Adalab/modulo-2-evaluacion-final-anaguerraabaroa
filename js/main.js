@@ -48,6 +48,7 @@ function paintData() {
       html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="show__image js-show-image" />`;
     }
     html += `<h4 class="show__title js-show-title">${shows[i].show.name}</h4>`;
+    html += `<p class="time">${shows[i].show.schedule.time}</p>`;
     html += `</div>`;
     html += `</li>`;
   }
@@ -57,6 +58,19 @@ function paintData() {
 // Search button listener
 
 btnElement.addEventListener("click", getData);
+
+function paintSearchResults() {
+  for (let i = 0; i < shows.length; i++) {
+    console.log(shows[i].show.name);
+  }
+}
+
+function resultsListener() {
+  const btnSearchList = document.querySelector(".js-paint-searchlist");
+  btnSearchList.addEventListener("click", paintSearchResults);
+}
+
+resultsListener();
 
 /*** 2. FAVOURITES ***/
 
