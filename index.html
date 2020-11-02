@@ -24,21 +24,29 @@
         />
       </a>
       <h2 class="header__claim">Code & Chill!</h2>
+      <img
+        class="header__image"
+        src="./images/header.png"
+        alt="Imagen carrete película"
+      />
     </header>
     <main class="main" role="main">
       <aside class="aside">
         <section class="aside__search" role="search">
           <form method="POST" role="post" class="form">
             <label for="search" class="label"
-              ><i class="fas fa-search"></i>What's on Codeflix?</label
+              ><i class="fas fa-video"></i> What's on Codeflix?</label
             >
-            <input
-              type="text"
-              id="search"
-              name="search"
-              placeholder="Find your favourite TV shows"
-              class="input js-input"
-            />
+            <div class="aside__search--box">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="search"
+                name="search"
+                placeholder="Find your favourite TV shows"
+                class="input js-input"
+              />
+            </div>
             <input type="button" value="Search" class="btn js-btn" />
           </form>
         </section>
@@ -48,12 +56,20 @@
           <ul class="aside__favourites--list js-favourites-list"></ul>
         </section>
       </aside>
-      <section class="results__section">
+      <section class="results__section js-results">
         <ul class="results__section--list js-list-container"></ul>
       </section>
     </main>
     <footer class="footer">
-      <small class="small">Codeflix. Code & Chill! @2020</small>
+      <small class="small"
+        ><a
+          href="https://beta.adalab.es/project-promo-k-module-01-team-05/"
+          title="Ir a la página oficial del equipo Codeflix"
+          target="_blank"
+          class="small__link"
+          >Codeflix. Code & Chill! @2020</a
+        ></small
+      >
     </footer>
     <script type="text/javascript" src="./js/main.js"></script>
   </body>

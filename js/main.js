@@ -51,6 +51,7 @@ function paintData() {
     html += `</div>`;
     html += `</li>`;
   }
+
   listContainer.innerHTML = html;
 }
 
