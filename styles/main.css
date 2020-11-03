@@ -40,7 +40,7 @@ body {
 .header__image {
   width: 100%;
   position: relative;
-  top: 5px;
+  top: 0;
 }
 
 /* Main */
@@ -179,6 +179,8 @@ body {
   cursor: pointer;
   color: #00a1ec;
   border: solid #ffffff;
+  border-radius: 50%;
+  outline: none;
 }
 
 .btn__reset {
@@ -226,6 +228,11 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.error__message {
+  color: #000000;
+  margin-left: 10px;
 }
 
 .show__wrapper {
