@@ -104,7 +104,7 @@ CodeflixSearchEngine
   - Method indexOf and conditional to compare index of the clickedShow array with index of the selected show. If it is not found, element is included on favShows array with a push method. If it is found, element is removed from favShows array with a splice method.
 - **Paint favourite shows list:** paintFavShows()
   - State a variable
-  - Loop to get data from shows array and keep it on variable
+  - Loop to get data from favShows array and keep it on variable
   - Insert data on the HTML container using a innerHTML method
 
 ### **LocalStorage**
