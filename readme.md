@@ -1,110 +1,126 @@
-![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
+# CodeflixSearchEngine
 
-### **MÓDULO 2: EJERCICIO DE EVALUACIÓN FINAL**
+Final Module 2 Exercise of the Adalab Digital Frontend Development Bootcamp.
 
----
+This is a TV shows search engine app developed with `HTML5` , `CSS3` and `JavaScript`.
 
-Este es el ejercicio de evaluación final del módulo 2 del curso de Programación Frontend de Adalab Digital.
+## **Quick start guide**
 
-#### **OBJETIVO**
+Instructions to start this project:
 
----
+### **Pre-requirements**
 
-- Aplicación web de búsqueda de series.
-- Seleccionar series favoritas y agregar/eliminar a listado de favoritos.
-- Guardar datos en LocalStorage.
+This project is run with Adalab Starter Kit [**here**](https://github.com/Adalab/adalab-web-starter-kit).
 
-#### **REQUISITOS**
+In order to use this kit it is needed to previously install [`**node.js**`](https://nodejs.org/es/), [`**git**`](https://git-scm.com/) and [`**gulp.js**`](https://gulpjs.com/) to automate tasks and control project versions.
 
----
+### **Installation**
 
-- Maquetación HTML.
-- Aplicar estilos con CSS.
-- Aplicar conocimientos Javascript: constantes, variables, condicionales, arrays, objetos, eventos, funciones y métodos.
+1. Clone repository
+2. Open a terminal
+3. Run `npm install` on the terminal to install local dependencies
 
-#### **DESARROLLO**
+### **Run project**
 
----
+Run `npm start` on the terminal.
 
-##### **HTML**
+This command has to be run everytime the project is started in order to:
 
-- Estructura base de la aplicación en HTML aportando semántica y clases (BEM).
-- Consta de:
+1. Open the project on the browser using a local server.
+2. Refresh browser everytime files contained in `/src` folder are updated.
+3. Compiled files contained in `/src` folder and copy them in `/public` folder in order to be prepared for production environment.
 
-  - Header
-  - Aside: formulario + sección favoritos
-  - Section: resultados de búsqueda
-  - Footer
+### **Deployment**
 
-##### **CSS**
+1. Run these commands to update changes on the project:
 
-- Aplicación de estilos para obtener un diseño sencillo.
+```
+git add -A
+git commit -m "Message commit"
+git push
+```
 
-##### **JAVASCRIPT**
+2. Run `npm run docs` to create `/docs` folder and the production environment version.
 
-- El ejercicio solicita varios procesos:
+3. Run again commands on step 1 to update changes on the project.
 
-##### **1.-Búsqueda**
+4. Project **[URL](https://anaguerraabaroa.github.io/CodeflixSearchEngine/)** is also available on GitHub Pages.
 
-- Función para obtener los datos del servidor: **_getData()_**
+## **Development technologies**
 
-  - Petición fetch: petición de datos al API de Tvmaze sumando el input value de la búsqueda del usuario al endpoint de base.
-  - Promesa: el servidor devuelve una respuesta con un archivo JSON.
-  - Promesa: se recoge la respuesta y se utilizan los datos para conformar el array "shows".
+- [**`HTML5`**](https://html.spec.whatwg.org/)
+- [**`CSS3`**](https://www.w3.org/Style/CSS/)
+- [**`JavaScript`**](https://www.ecma-international.org/ecma-262/)
 
-- Función para pintar los datos de búsqueda: **_paintData()_**
+## **Exercise development requirements**
 
-  - Se declara una variable vacía y se recorre el array con un bucle for clásico para rellenarla con los elementos que se quiere pintar en el HTML.
-  - Se accede a las propiedades del array que interesa utilizar de forma dinámica y se interpolan en los elementos.
-  - Finalmente se pinta la información en el HTML utilizando un método innerHTML sobre el elemento contenedor.
-  - Una vez que el usuario ha seleccionado un favorito también se utiliza esta función para recorrer con un bucle for clásico anidado el array "favShows". Si el índice del elemento seleccionado coincide con el índice del elemento de la búsqueda se añade una clase para marcar el elemento como favorito.
+- TV shows search form with an input to enter show name and a button to send the request to the api: http://api.tvmaze.com/search/shows?q=girls
+- Search results list with the name and an image of the show. If the show has not an image, it is shown a default image
+- Select favourite shows by clicking on the show and changing background colour. Selected favourite shows remain although user do a new search
+- Favourite shows list under search form
+- Reset button to remove all shows from favourites list
+- Close button on each favourites card to remove shows individually
+- Set favourite shows on LocalStorage to get data when app is run
 
-- Listener botón de búsqueda: **_btnElement.addEventListener("click", getData)_**
+## **Folder Structure**
 
-  - Para que ambas funciones se desencadenen primero se escucha un evento "click" sobre el botón de búsqueda.
+```
+CodeflixSearchEngine
+├── images
+│   ├── codeflix_search_engine.jpg
+│   ├── default_image.jpg
+│   └── header.png
+├── js
+│   └── main.js
+├── styles
+│   └── main.css
+├── index.html
+└── readme.md
+```
 
-##### **2.- Favoritos**
+## **Listeners and functions**
 
-- Función para seleccionar favoritos: **_favouriteShows(event)_**
+### **Search**
 
-  - Se declara un nuevo array "favShows" vacío para rellenarlo con los elementos favoritos de los usuarios.
-  - Para trabajar de manera más eficiente se crea un nuevo objeto únicamento con los datos del array que interesa almacenar (name, image e id).
-  - Para incluir la información de cada objeto dentro del array se utiliza el método indexOf. Como este método sólo admite trabajar con índices declaramos un nuevo array únicamente con los índices de cada elemento.
-  - Con un condicional se comparan los índices de cada elemento con el elemento seleccionado por el usuario y si el método indexOf no lo encuentra lo incluye dentro del array "favShows" con un método push y si lo encuentra lo elimina con un método splice.
+- **Event listener:** btnElement.addEventListener("click", getData)
+  - Click event on the search button
+- **Get data from API:** getData()
+  - Fetch request to the Tvmaze API endpoint with the user input value
+  - Data from API response is used to create shows array
+- **Paint search result list:** paintData()
+  - State a variable
+  - Loop to get data from shows array and keep it on variable
+  - Insert data on the HTML container using a innerHTML method
+  - Once a favourite show is selected a new loop runs on favShows array and if index of the selected show match with index of the show, add a class to the show card in order to change background colour
 
-- Función para pintar favoritos: **_paintFavShows()_**
+### **Favourites**
 
-  - Se declara una variable vacía y se recorre el array con un bucle for clásico para rellenarla con los elementos que se quiere pintar en el HTML.
-  - Se accede a las propiedades del array que interesa utilizar de forma dinámica y se interpolan en los elementos.
-  - Finalmente se pinta la información en el HTML utilizando un método innerHTML sobre el elemento contenedor.
+- **Event listener:** show.addEventListener("click", favouriteShows)
+  - Click event on shows card
+- **Handle favourites array:** favouriteShows(event)
+  - State a new favShows array
+  - State a new objFavShow object with needed data: name, image and id
+  - State a new clickedShow array to work only with elements index
+  - Method indexOf and conditional to compare index of the clickedShow array with index of the selected show. If it is not found, element is included on favShows array with a push method. If it is found, element is removed from favShows array with a splice method.
+- **Paint favourite shows list:** paintFavShows()
+  - State a variable
+  - Loop to get data from shows array and keep it on variable
+  - Insert data on the HTML container using a innerHTML method
 
-- Listener lista de resultados de búsqueda: **_show.addEventListener("click", favouriteShows)_**
+### **LocalStorage**
 
-  - Para que ambas funciones se desencadenen primero se escucha un evento "click" sobre cada uno de los resultados de búsqueda con un método querySelectorAll.
+- **Set data in LocalStorage:** setLocalStorage()
+  - Set data on the LocalStorage
+- **Get data from LocalStorage:** getLocalStorage()
+  - Get data from LocalStorage and keep it on favShows array
 
-##### **3.- LocalStorage**
+### **Reset**
 
-- Función para guardar los datos del array "favShows" en LocalStorage: **_setLocalStorage()_**
+- **Event listener:** resetBtn.addEventListener("click", handleReset)
+  - Click event on reset button
+- **Handle reset:** handleReset()
+  - Remove data from form input, favourite shows list and LocalStorage
 
-  - Se guardan los datos del array "favShows" con un método localStorage.setItem convirtiéndolo en una cadena de caracteres con el método JSON.stringify.
+## **Result**
 
-- Función para recoger los datos del array "favShows" del LocalStorage y que aparezcan pintados en la aplicación al cargarla: **_getLocalStorage()_**
-
-  - Se recogen los datos guardados en LocalStorage con un método localStorage.getItem, parseando la cadena de caracteres para convertirla de nuevo en un array con el método JSON.parse.
-  - Con un condicional se establece que si la respuesta del LocalStorage devuelve datos, estos se deben incluir en el array "favShows".
-
-##### **4.- Bonus**
-
-- Función para borrar la lista completa de favoritos: **_handleReset()_**
-
-  - Se vacía el array de "favShows", se vacía el input value de la búsqueda del usuario y los datos almacenados en LocalStorage.
-
-- Listener botón de reset: **_resetBtn.addEventListener("click", handleReset)_**
-
-  - Para que la función se desencadene primero se escucha un evento "click" sobre el botón de reset.
-
-##### **RESULTADO**
-
----
-
-- URL: http://beta.adalab.es/modulo-2-evaluacion-final-anaguerraabaroa/
+![Codeflix Search Engine](./images/codeflix_search_engine.jpg)
