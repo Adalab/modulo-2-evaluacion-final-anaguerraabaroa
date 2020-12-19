@@ -1,4 +1,4 @@
-# CodeflixSearchEngine
+# **CodeflixSearchEngine**
 
 Final Module 2 Exercise of the Adalab Digital Frontend Development Bootcamp.
 
@@ -75,7 +75,7 @@ CodeflixSearchEngine
 ├── styles
 │   └── main.css
 ├── index.html
-└── readme.md
+└── README.md
 ```
 
 ## **Listeners and functions**
