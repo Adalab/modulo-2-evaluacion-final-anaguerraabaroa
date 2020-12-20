@@ -1,3 +1,5 @@
+![Codeflix Search Engine Banner](https://pro.sony/s3/2017/04/08151948/main-banner_1600x450.jpg)
+
 # **CodeflixSearchEngine**
 
 Final Module 2 Exercise of the Adalab Digital Frontend Development Bootcamp.
