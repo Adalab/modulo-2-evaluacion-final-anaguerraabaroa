@@ -4,7 +4,7 @@
 
 Final Module 2 Exercise of the Adalab Digital Frontend Development Bootcamp.
 
-This is a TV shows search engine app developed with `HTML5` , `CSS3` and `JavaScript`.
+This is a TV shows search engine app developed with [<img src = "https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">](https://html.spec.whatwg.org/) [<img src = "https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">](https://www.w3.org/Style/CSS/) and [<img src = "https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black">](https://www.ecma-international.org/ecma-262/)
 
 ## **Quick start guide**
 
@@ -14,7 +14,7 @@ Instructions to start this project:
 
 This project is run with Adalab Starter Kit [**here**](https://github.com/Adalab/adalab-web-starter-kit).
 
-In order to use this kit it is needed to previously install [**`node.js`**](https://nodejs.org/es/), [**`git`**](https://git-scm.com/) and [**`gulp.js`**](https://gulpjs.com/) to automate tasks and control project versions.
+In order to use this kit it is needed to previously install [<img src="https://img.shields.io/badge/-node.js-339933?style=flat&logo=node.js&logoColor=white">](https://nodejs.org/es/), [<img src="https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=white">](https://git-scm.com/) and [<img src="https://img.shields.io/badge/-Gulp.js-CF4647?style=flat&logo=gulp&logoColor=white">](https://gulpjs.com/) to automate tasks and control project versions.
 
 ### **Installation**
 
@@ -47,12 +47,6 @@ git push
 3. Run again commands on step 1 to update changes on the project.
 
 4. Project **[URL](https://anaguerraabaroa.github.io/CodeflixSearchEngine/)** is also available on GitHub Pages.
-
-## **Development technologies**
-
-- [**`HTML5`**](https://html.spec.whatwg.org/)
-- [**`CSS3`**](https://www.w3.org/Style/CSS/)
-- [**`JavaScript`**](https://www.ecma-international.org/ecma-262/)
 
 ## **Exercise development requirements**
 
