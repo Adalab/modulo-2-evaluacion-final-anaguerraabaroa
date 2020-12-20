@@ -84,13 +84,13 @@ CodeflixSearchEngine
 
 - **Event listener:** btnElement.addEventListener("click", getData)
 - **Get data from API:** function getData()
-- **Paint search result list:** function paintData()
+- **Render search result list:** function paintData()
 
 ### **Favourites**
 
 - **Event listener:** function listenFavourites()
 - **Handle favourites array:** function favouriteShows(event)
-- **Paint favourite shows list:** function paintFavShows()
+- **Render favourite shows list:** function paintFavShows()
 
 ### **LocalStorage**
 
