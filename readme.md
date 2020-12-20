@@ -83,43 +83,24 @@ CodeflixSearchEngine
 ### **Search**
 
 - **Event listener:** btnElement.addEventListener("click", getData)
-  - Click event on the search button
 - **Get data from API:** getData()
-  - Fetch request to the Tvmaze API endpoint with the user input value
-  - Data from API response is used to create shows array
 - **Paint search result list:** paintData()
-  - State a variable
-  - Loop to get data from shows array and keep it on variable
-  - Insert data on the HTML container using a innerHTML method
-  - Once a favourite show is selected a new loop runs on favShows array and if index of the selected show match with index of the show, add a class to the show card in order to change background colour
 
 ### **Favourites**
 
 - **Event listener:** show.addEventListener("click", favouriteShows)
-  - Click event on shows card
 - **Handle favourites array:** favouriteShows(event)
-  - State a new favShows array
-  - State a new objFavShow object with needed data: name, image and id
-  - State a new clickedShow array to work only with elements index
-  - Method indexOf and conditional to compare index of the clickedShow array with index of the selected show. If it is not found, element is included on favShows array with a push method. If it is found, element is removed from favShows array with a splice method.
 - **Paint favourite shows list:** paintFavShows()
-  - State a variable
-  - Loop to get data from favShows array and keep it on variable
-  - Insert data on the HTML container using a innerHTML method
 
 ### **LocalStorage**
 
 - **Set data in LocalStorage:** setLocalStorage()
-  - Set data on the LocalStorage
 - **Get data from LocalStorage:** getLocalStorage()
-  - Get data from LocalStorage and keep it on favShows array
 
 ### **Reset**
 
 - **Event listener:** resetBtn.addEventListener("click", handleReset)
-  - Click event on reset button
 - **Handle reset:** handleReset()
-  - Remove data from form input, favourite shows list and LocalStorage
 
 ## **Result**
 
