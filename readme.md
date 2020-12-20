@@ -83,24 +83,29 @@ CodeflixSearchEngine
 ### **Search**
 
 - **Event listener:** btnElement.addEventListener("click", getData)
-- **Get data from API:** getData()
-- **Paint search result list:** paintData()
+- **Get data from API:** function getData()
+- **Paint search result list:** function paintData()
 
 ### **Favourites**
 
-- **Event listener:** show.addEventListener("click", favouriteShows)
-- **Handle favourites array:** favouriteShows(event)
-- **Paint favourite shows list:** paintFavShows()
+- **Event listener:** function listenFavourites()
+- **Handle favourites array:** function favouriteShows(event)
+- **Paint favourite shows list:** function paintFavShows()
 
 ### **LocalStorage**
 
-- **Set data in LocalStorage:** setLocalStorage()
-- **Get data from LocalStorage:** getLocalStorage()
+- **Set data in LocalStorage:** function setLocalStorage()
+- **Get data from LocalStorage:** function getLocalStorage()
 
 ### **Reset**
 
 - **Event listener:** resetBtn.addEventListener("click", handleReset)
-- **Handle reset:** handleReset()
+- **Handle reset:** function handleReset()
+
+### **Remove shows from favourites list**
+
+- **Event listener:** function listenRemoveBtn()
+- **Handle shows individually:** function removeFavShow(event)
 
 ## **Result**
 
