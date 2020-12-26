@@ -104,3 +104,7 @@ CodeflixSearchEngine
 ## **Result**
 
 ![Codeflix Search Engine](./images/codeflix_search_engine.jpg)
+
+## **License**
+
+This project is licensed under [**MIT License**](https://spdx.org/licenses/MIT.html).
