@@ -69,6 +69,7 @@ CodeflixSearchEngine
 ├── styles
 │   └── main.css
 ├── index.html
+├── LICENSE
 └── README.md
 ```
 
