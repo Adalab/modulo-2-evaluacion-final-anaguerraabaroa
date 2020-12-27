@@ -60,17 +60,61 @@ git push
 
 ```
 CodeflixSearchEngine
-├── images
-│   ├── codeflix_search_engine.jpg
-│   ├── default_image.jpg
-│   └── header.png
-├── js
-│   └── main.js
-├── styles
-│   └── main.css
-├── index.html
+├── docs
+├── node_modules
+├── public
+├── src
+│   ├── html
+│   │   ├── partials
+│   │   │   ├── footer.html
+│   │   │   ├── header.html
+│   │   │   ├── hero.html
+│   │   │   ├── main.html
+│   │   │   ├── section-favourites.html
+│   │   │   ├── section-results.html
+│   │   │   └── section-search.html
+│   │   └── index.html
+│   ├── images
+│   │    ├── default_image.jpg
+│   │    ├── favicon.png
+│   │    ├── landing_desktop.png
+│   │    ├── landing_mobile.png
+│   │    ├── landing_tablet.png
+│   │    └── hero.jpg
+│   ├── js
+│   │    ├── 01search.js
+│   │    ├── 02favourites.js
+│   │    ├── 03localStorage.js
+│   │    ├── 04reset.js
+│   │    ├── 05removeFavourites.js
+│   │    └── 06main.js
+│   └── scss
+│       ├── core
+│       │   ├── _reset.scss
+│       │   └── _variables.scss
+│       ├── layout
+│       │   ├── _footer.scss
+│       │   ├── _header.scss
+│       │   ├── _hero.scss
+│       │   ├── _section-favourites.scss
+│       │   ├── _section-results.scss
+│       │   └── _section-search.scss
+│       ├── pages
+│       │   └── _index.scss
+│       └── main.scss
+├── .browserslistrc
+├── .csscomb.json
+├── .eslintrc.json
+├── .gitignore
+├── config.json
+├── debug.log
+├── gulp-flow.png
+├── gulpfile.js
 ├── LICENSE
-└── README.md
+├── package-lock.json
+├── package.json
+├── README.md
+└── robots.txt
 ```
 
 ## **Listeners and functions**
@@ -97,14 +141,14 @@ CodeflixSearchEngine
 - **Event listener:** resetBtn.addEventListener("click", handleReset)
 - **Handle reset:** function handleReset()
 
-### **Remove shows from favourites list**
+### **Remove shows from favourite shows list**
 
 - **Event listener:** function listenRemoveBtn()
 - **Handle shows individually:** function removeFavShow(event)
 
 ## **Result**
 
-![Codeflix Search Engine](./images/codeflix_search_engine.jpg)
+![Mobile version](./src/images/landing_mobile.png) ![Tablet version](./src/images/landing_tablet.png) ![Dektop version](./src/images/landing_desktop.png)
 
 ## **License**
 

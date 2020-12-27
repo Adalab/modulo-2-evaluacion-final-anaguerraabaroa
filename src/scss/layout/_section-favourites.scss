@@ -1,0 +1,81 @@
+.favourites {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: $colorBrand2;
+  margin-bottom: 20px;
+  &__icon {
+    margin-right: 10px;
+    color: $colorBrand3;
+    font-size: 20px;
+  }
+  &__title {
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  &__btn--reset {
+    width: 60px;
+    height: 30px;
+    padding: auto;
+    margin-left: 10px;
+    background-color: $colorBrand1;
+    color: $colorBrand2;
+    border-radius: 5px;
+    border: 2px solid $colorBrand2;
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color ease 0.5s;
+    &:hover {
+      background-color: $colorBrand3;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    &--wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 150px;
+      height: 300px;
+      margin: 5px;
+      background-color: $colorBrand3;
+    }
+    &--image {
+      width: 150px;
+      border: 10px solid $colorBrand3;
+      margin-bottom: 5px;
+    }
+    &--title {
+      color: $colorBrand2;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    &--button {
+      font-size: 16px;
+      width: 30px;
+      height: 30px;
+      background-color: $colorBrand2;
+      cursor: pointer;
+      color: $colorBrand3;
+      border: solid $colorBrand2;
+      border-radius: 50%;
+      outline: none;
+    }
+  }
+}
