@@ -44,7 +44,7 @@ function renderFavShows() {
     htmlFav += `<li class="favourites__list--favshow js-fav-show">`;
     htmlFav += `<div class="favourites__list--wrapper">`;
     if (favShows[i].image === null) {
-      let defaultImg = "../assets/images/default_image.jpg";
+      let defaultImg = "./assets/images/default_image.jpg";
       htmlFav += `<img src="${defaultImg}" alt="Imagen de la serie ${favShows[i].name}" class="favourites__list--image"/>`;
     } else {
       htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favourites__list--image" />`;

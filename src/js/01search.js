@@ -33,7 +33,7 @@ function renderData() {
     }
     html += `<div class="results__list--wrapper js-favourites ${classFav}" id="${shows[i].show.id}">`;
     if (shows[i].show.image === null) {
-      html += `<img src="../assets/images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="results__list--image js-show-image"/>`;
+      html += `<img src="./assets/images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="results__list--image js-show-image"/>`;
     } else {
       html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="results__list--image js-show-image" />`;
     }
