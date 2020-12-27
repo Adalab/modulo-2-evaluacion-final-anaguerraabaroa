@@ -1,68 +1,137 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codeflix TV Shows - Code & Chill!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./assets/images/favicon.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="./assets/images/favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/3cd653d2b1.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-
   <body>
-    <div class="page">
-      <header class="page__header">
-        <img src="./assets/images/logo-adalab.png" alt="Adalab">
-        <h1>Bienvenidos a Adalab</h1>
-      </header>
+    <header class="header" role="banner">
+      <a href="./index.html" title="Go to home">
+        <img
+          class="header__logo"
+          src="https://fontmeme.com/permalink/200909/84165089e106b0066fa661862435c23b.png"
+          title="Codeflix logo"
+          alt="Codeflix logo"
+        />
+      </a>
+      <h2 class="header__claim">Tv shows & chill!</h2>
+    </header>
 
-      <main class="page__main">
-        <h2>Este es el starter kit de Adalab</h2>
-        <p>Lo usamos para aprender:</p>
-        <ul class="main__list">
-          <li>Sass</li>
-          <li>HTML partials</li>
-          <li>Gulp</li>
-          <li>y muchas cosas más</li>
+    <section class="hero">
+      <img
+        src="../assets/images/hero.jpg"
+        title="Imagen listado series"
+        alt="Imagen listado series"
+        class="hero__image"
+      />
+    </section>
+
+    <main class="main" role="main">
+      <aside class="aside">
+        <section class="search" role="search">
+          <form method="POST" role="post" class="search__form">
+            <label for="search" class="search__form--label">
+              <i class="fas fa-video search__form--labelIcon"></i> What's on
+              Codeflix?</label
+            >
+            <div class="search__form--wrapper">
+              <i class="fas fa-search search__form--inputIcon"></i>
+              <input
+                type="text"
+                id="search"
+                name="search"
+                placeholder="Find your favourite tv show"
+                class="search__form--input js-input"
+              />
+            </div>
+            <input type="button" value="Search" class="search__form--btn js-btn" />
+          </form>
+        </section>
+
+        <section class="favourites">
+          <div class="favourites__wrapper">
+            <i class="fas fa-heart favourites__icon"></i>
+            <h3 class="favourites__title">My list</h3>
+            <button type="button" class="favourites__btn--reset js-btn-reset">
+              Reset
+            </button>
+          </div>
+          <ul class="favourites__list js-favourites-list"></ul>
+        </section>
+
+        <section class="results js-results">
+          <div class="results__wrapper">
+            <i class="fas fa-bars results__icon"></i>
+            <h3 class="results__title">Search results</h3>
+          </div>
+          <ul class="results__list js-list-container"></ul>
+        </section>
+
+      </aside>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <a
+        href="https://anaguerraabaroa.github.io/Codeflix/"
+        title="Link to Codeflix Team website"
+        target="_blank"
+      >
+        <small class="footer__small"
+          >@2020 Ana Guerra Abaroa. Tv shows & chill!</small
+        >
+      </a>
+      <nav class="footer__menu" role="navigation">
+        <ul class="footer__menu--logos">
+          <li class="logo">
+            <a
+              href="https://github.com/anaguerraabaroa"
+              title="Link to Ana Guerra Abaroa github"
+              target="_blank"
+              class="github"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li class="logo">
+            <a
+              href="https://www.linkedin.com/in/anaguerraabaroa/"
+              title="Link to Ana Guerra Abaroa linkedin"
+              target="_blank"
+              class="linkedin"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          <li class="log">
+            <a
+              href="https://twitter.com/anaguerraabaroa"
+              title="Link to Ana Guerra Abaroa twitter"
+              target="_blank"
+              class="twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
         </ul>
-        <p>Si quieres saber cúales son las rutas correctas para:</p>
-        <ul class="main__list">
-          <li>
-            una <code class="code">&lt;img /&gt;</code> mira el fichero
-            <code class="code">./src/html/partials/header.html</code>.
-          </li>
-          <li>
-            y para un <code class="code">background-image</code> mira el fichero
-            <code class="code">./src/html/scss/layout/_page.scss</code>.
-          </li>
-        </ul>
-        <p>
-          Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-          <code class="code">./src/html/index.html</code> y
-          <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-          enlaces:
-        </p>
-        <ul class="main__list">
-          <li>
-            <a class="link__adalab" href="https://adalab.es">Adalab</a>
+      </nav>
+    </footer>
 
-          </li>
-          <li>
-            <a class="" href="./more-info.html">Más info del starter kit</a>
-
-          </li>
-        </ul>
-      </main>
-
-      <footer class="page__footer">
-        <small>
-          &copy; Todos los derechos reservados
-          <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-        </small>
-      </footer>
-
-    </div>
-    <script src="./assets/js/main.js"></script>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
   </body>
 </html>
