@@ -144,7 +144,7 @@ CodeflixSearchEngine
 ### **Remove shows from favourite shows list**
 
 - **Event listener:** function listenRemoveBtn()
-- **Handle shows individually:** function removeFavShow(event)
+- **Remove shows from favourite shows list individually:** function removeFavShow(event)
 
 ## **Result**
 
