@@ -148,7 +148,7 @@ CodeflixSearchEngine
 
 ## **Result**
 
-![Mobile version](./src/images/landing_mobile.png) ![Tablet version](./src/images/landing_tablet.png) ![Dektop version](./src/images/landing_desktop.png)
+![Mobile version](./src/images/landing_mobile.jpg) ![Tablet version](./src/images/landing_tablet.jpg) ![Dektop version](./src/images/landing_desktop.jpg)
 
 ## **License**
 
