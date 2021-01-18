@@ -8,6 +8,17 @@ const listContainer = document.querySelector(".js-list-container"); // Search re
 // Arrays
 let shows = []; // Original shows array
 
+// Prevent event default on search form
+function preventDefault(ev) {
+  if (ev.key === "Enter") {
+    ev.preventDefault();
+    getData();
+  }
+}
+
+// Document listener
+document.addEventListener("keydown", preventDefault);
+
 // API data request
 function getData() {
   let inputValue = inputElement.value;

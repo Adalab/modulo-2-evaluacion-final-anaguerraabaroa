@@ -121,6 +121,8 @@ CodeflixSearchEngine
 
 ### **Search**
 
+- **Event listener:** document.addEventListener("keydown", preventDefault)
+- **Prevent event default on search form:** function preventDefault(ev)
 - **Event listener:** btnElement.addEventListener("click", getData)
 - **Get data from API:** function getData()
 - **Render search result list:** function paintData()
