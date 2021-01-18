@@ -44,8 +44,19 @@
 
     <main class="main" role="main">
       <aside class="aside">
+        <section class="favourites">
+          <div class="favourites__wrapper">
+            <i class="fas fa-heart favourites__icon"></i>
+            <h3 class="favourites__title">My list</h3>
+            <button type="button" class="favourites__btn--reset js-btn-reset">
+              Reset
+            </button>
+          </div>
+          <ul class="favourites__list js-favourites-list"></ul>
+        </section>
+
         <section class="search" role="search">
-          <form method="POST" role="post" class="search__form">
+          <form method="GET" role="post" class="search__form">
             <label for="search" class="search__form--label">
               <i class="fas fa-video search__form--labelIcon"></i> What's on
               Codeflix?</label
@@ -62,17 +73,6 @@
             </div>
             <input type="button" value="Search" class="search__form--btn js-btn" />
           </form>
-        </section>
-
-        <section class="favourites">
-          <div class="favourites__wrapper">
-            <i class="fas fa-heart favourites__icon"></i>
-            <h3 class="favourites__title">My list</h3>
-            <button type="button" class="favourites__btn--reset js-btn-reset">
-              Reset
-            </button>
-          </div>
-          <ul class="favourites__list js-favourites-list"></ul>
         </section>
 
         <section class="results js-results">
