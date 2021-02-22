@@ -148,7 +148,7 @@ CodeflixSearchEngine
 - **Event listener:** function listenRemoveBtn()
 - **Remove shows from favourite shows list individually:** function removeFavShow(event)
 
-## **Project captures**
+## **Screenshots**
 
 ![Mobile version](./src/images/landing_mobile.jpg) ![Tablet version](./src/images/landing_tablet.jpg) ![Dektop version](./src/images/landing_desktop.jpg)
 
