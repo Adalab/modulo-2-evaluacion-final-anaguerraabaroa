@@ -1,6 +1,6 @@
 ![Codeflix Search Engine Banner](https://pro.sony/s3/2017/04/08151948/main-banner_1600x450.jpg)
 
-# **Codeflix Search Shows**
+# **Codeflix TV Shows Search**
 
 Module 2 final project of the Adalab Digital Frontend Development Bootcamp.
 
@@ -44,7 +44,7 @@ git push
 
 3. Run again commands on step 1 to update changes on the project.
 
-4. Project **[URL](https://anaguerraabaroa.github.io/javascript-codeflix-search-shows/)** is also available on GitHub Pages.
+4. Project **[URL](https://anaguerraabaroa.github.io/javascript-codeflix-shows-search/)** is also available on GitHub Pages.
 
 ## **Project features**
 
