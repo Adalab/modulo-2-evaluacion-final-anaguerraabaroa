@@ -59,7 +59,7 @@ git push
 ## **Folder Structure**
 
 ```
-CodeflixSearchEngine
+Codeflix TV Shows Search
 ├── docs
 ├── node_modules
 ├── public
