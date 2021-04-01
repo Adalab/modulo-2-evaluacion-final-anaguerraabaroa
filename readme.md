@@ -1,4 +1,4 @@
-![Codeflix Search Engine Banner](https://pro.sony/s3/2017/04/08151948/main-banner_1600x450.jpg)
+![Mobile version](./src/images/landing_mobile.png) ![Tablet version](./src/images/landing_tablet.png) ![Dektop version](./src/images/landing_desktop.png)
 
 # **Codeflix TV Shows Search**
 
@@ -147,10 +147,6 @@ Codeflix TV Shows Search
 
 - **Event listener:** function listenRemoveBtn()
 - **Remove shows from favourite shows list individually:** function removeFavShow(event)
-
-## **Screenshots**
-
-![Mobile version](./src/images/landing_mobile.jpg) ![Tablet version](./src/images/landing_tablet.jpg) ![Dektop version](./src/images/landing_desktop.jpg)
 
 ## **License**
 
