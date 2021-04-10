@@ -36,7 +36,7 @@ npm start
 
 ## **Features**
 
-- TV shows search form with an input to enter show name and a button to send the request to the [**API**](http://api.tvmaze.com/search/shows?q=girls)
+- TV shows search form with an input to enter show name and a button to send the request to the [**API**](https://www.tvmaze.com/api)
 - Search results list with the name and an image of the show. If the show has not an image, it is shown a default image
 - Select favourite shows by clicking on the show and changing background colour. Selected favourite shows remain although user do a new search
 - Favourite shows list under search form
