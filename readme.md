@@ -4,47 +4,34 @@
 
 Module 2 final project of the Adalab Digital Frontend Development Bootcamp.
 
-This is a responsive TV shows search web app developed with [<img src = "https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">](https://html.spec.whatwg.org/) [<img src = "https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">](https://www.w3.org/Style/CSS/) and [<img src = "https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black">](https://www.ecma-international.org/ecma-262/)
+This is a responsive TV shows search web app developed with [<img src = "https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">](https://html.spec.whatwg.org/) [<img src="https://img.shields.io/badge/-SASS-cc6699?style=for-the-badge&logo=sass&logoColor=ffffff">](https://sass-lang.com/)
+[<img src = "https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">](https://www.w3.org/Style/CSS/) and [<img src = "https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">](https://www.ecma-international.org/ecma-262/)
 
 ## **Quick start guide**
 
 Instructions to start this project:
 
-### **Pre-requirements**
+## Installation
 
-This project runs with Adalab Starter Kit [**here**](https://github.com/Adalab/adalab-web-starter-kit).
-
-In order to use this kit it is needed to previously install [<img src="https://img.shields.io/badge/-node.js-339933?style=flat&logo=node.js&logoColor=white">](https://nodejs.org/es/), [<img src="https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=white">](https://git-scm.com/) and [<img src="https://img.shields.io/badge/-Gulp.js-CF4647?style=flat&logo=gulp&logoColor=white">](https://gulpjs.com/) to automate tasks and control project versions.
-
-### **Installation**
-
-1. Clone repository
-2. Open a terminal
-3. Run `npm install` on the terminal to install local dependencies
-
-### **Run project**
-
-Run `npm start` on the terminal:
-
-1. Open the project on the browser using a local server.
-2. Refresh browser everytime files contained in `/src` folder are updated.
-3. Compiled files contained in `/src` folder and copy them in `/public` folder in order to be prepared for production environment.
-
-### **Updating**
-
-1. Run these commands to update changes on the project:
+- Clone repository:
 
 ```
-git add -A
-git commit -m "Message commit"
-git push
+git clone [repository]
 ```
 
-2. Run `npm run docs` to create `/docs` folder and the production environment version.
+- Install NPM packages and dependencies:
 
-3. Run again commands on step 1 to update changes on the project.
+```
+npm install
+```
 
-4. Project **[URL](https://anaguerraabaroa.github.io/javascript-codeflix-shows-search/)** is also available on GitHub Pages.
+- Run project on local server:
+
+```
+npm start
+```
+
+- **[Project URL](https://anaguerraabaroa.github.io/javascript-codeflix-shows-search/)** is also available on GitHub Pages.
 
 ## **Project features**
 
@@ -55,6 +42,169 @@ git push
 - Reset button to remove all shows from favourites list
 - Close button on each favourites card to remove shows individually
 - Set favourite shows on LocalStorage to get data when app is run
+
+## **Usage**
+
+### **1. Search**
+
+- **Get data from API:**
+
+```javascript
+function getData() {
+  let inputValue = inputElement.value;
+  fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
+    .then((response) => response.json())
+    .then((data) => {
+      shows = data;
+      renderData();
+      listenFavourites();
+    });
+}
+```
+
+- **Render search results:**
+
+```javascript
+function renderData() {
+  let html = "";
+  for (let i = 0; i < shows.length; i++) {
+    let classFav;
+    html += `<li class="results__list--show"></li>`;
+    for (let j = 0; j < favShows.length; j++) {
+      if (parseInt(favShows[j].id) === shows[i].show.id) {
+        classFav = "results__list--favWrapper results__list--favBorder";
+      }
+    }
+    html += `<div class="results__list--wrapper js-favourites ${classFav}" id="${shows[i].show.id}">`;
+    if (shows[i].show.image === null) {
+      html += `<img src="./assets/images/default_image.jpg"; alt="Imagen de la serie ${shows[i].show.name}" class="results__list--image js-show-image"/>`;
+    } else {
+      html += `<img src="${shows[i].show.image.medium}" alt="Imagen de la serie ${shows[i].show.name}" class="results__list--image js-show-image" />`;
+    }
+    html += `<h4 class="results__list--title js-show-title">${shows[i].show.name}</h4>`;
+    html += `</div>`;
+    html += `</li>`;
+  }
+  listContainer.innerHTML = html;
+}
+```
+
+### **2. Favourites**
+
+- **Handle favourites:**
+
+```javascript
+function favouriteShows(event) {
+  const currentShow = event.currentTarget;
+  const currentShowName = currentShow.querySelector(".js-show-title");
+  const currentShowImage = currentShow.querySelector(".js-show-image");
+
+  const objFavShow = {
+    name: currentShowName.innerHTML,
+    image: currentShowImage.src,
+    id: currentShow.id,
+  };
+
+  const clickedShow = parseInt(currentShow.id);
+  favShowsId = favShows.map(function (element) {
+    return parseInt(element.id);
+  });
+
+  const indexFav = favShowsId.indexOf(clickedShow);
+  if (indexFav === -1) {
+    favShows.push(objFavShow);
+  } else {
+    favShows.splice(indexFav, 1);
+  }
+  renderFavShows();
+  listenRemoveBtn();
+  renderData();
+  listenFavourites();
+  setLocalStorage();
+}
+```
+
+- **Render favourite shows:**
+
+```javascript
+function renderFavShows() {
+  let htmlFav = "";
+  for (let i = 0; i < favShows.length; i++) {
+    htmlFav += `<li class="favourites__list--favshow js-fav-show">`;
+    htmlFav += `<div class="favourites__list--wrapper">`;
+    if (favShows[i].image === null) {
+      let defaultImg = "./assets/images/default_image.jpg";
+      htmlFav += `<img src="${defaultImg}" alt="Imagen de la serie ${favShows[i].name}" class="favourites__list--image"/>`;
+    } else {
+      htmlFav += `<img src="${favShows[i].image}" alt="Imagen de la serie ${favShows[i].name}" class="favourites__list--image" />`;
+    }
+    htmlFav += `<h4 class="favourites__list--title">${favShows[i].name}</h4>`;
+    htmlFav += `<button class="favourites__list--button js-fav-btn"><i class="fas fa-times" id="${favShows[i].id}"></i></button>`;
+    htmlFav += `</div>`;
+    htmlFav += `</li>`;
+  }
+  favouriteList.innerHTML = htmlFav;
+}
+```
+
+- **Remove shows from favourite shows list**
+
+```javascript
+function removeFavShow(event) {
+  for (let i = 0; i < favShows.length; i++) {
+    const removeBtnid = parseInt(event.target.id);
+    const idFavShow = parseInt(favShows[i].id);
+    if (removeBtnid === idFavShow) {
+      favShows.splice([i], 1);
+    }
+  }
+  renderFavShows();
+  listenRemoveBtn();
+  renderData();
+  listenFavourites();
+  setLocalStorage();
+}
+```
+
+### **3. LocalStorage**
+
+- **Set data in LocalStorage:**
+
+```javascript
+function setLocalStorage() {
+  localStorage.setItem("favShows", JSON.stringify(favShows));
+}
+```
+
+- **Get data from LocalStorage:**
+
+```javascript
+function getLocalStorage() {
+  const localFavShows = JSON.parse(localStorage.getItem("favShows"));
+  if (localFavShows !== null) {
+    favShows = localFavShows;
+    renderFavShows();
+    listenRemoveBtn();
+    listenFavourites();
+  }
+}
+```
+
+### **4. Reset**
+
+- **Handle reset:**
+
+```javascript
+function handleReset() {
+  favShows = [];
+  inputElement.value = "";
+  localStorage.removeItem("favShows");
+  renderFavShows();
+  listenRemoveBtn();
+  renderData();
+  listenFavourites();
+}
+```
 
 ## **Folder Structure**
 
@@ -117,37 +267,6 @@ Codeflix TV Shows Search
 └── robots.txt
 ```
 
-## **Listeners and functions**
-
-### **Search**
-
-- **Event listener:** document.addEventListener("keydown", preventDefault)
-- **Prevent event default on search form:** function preventDefault(ev)
-- **Event listener:** btnElement.addEventListener("click", getData)
-- **Get data from API:** function getData()
-- **Render search result list:** function paintData()
-
-### **Favourites**
-
-- **Event listener:** function listenFavourites()
-- **Handle favourites array:** function favouriteShows(event)
-- **Render favourite shows list:** function paintFavShows()
-
-### **LocalStorage**
-
-- **Set data in LocalStorage:** function setLocalStorage()
-- **Get data from LocalStorage:** function getLocalStorage()
-
-### **Reset**
-
-- **Event listener:** resetBtn.addEventListener("click", handleReset)
-- **Handle reset:** function handleReset()
-
-### **Remove shows from favourite shows list**
-
-- **Event listener:** function listenRemoveBtn()
-- **Remove shows from favourite shows list individually:** function removeFavShow(event)
-
 ## **License**
 
-This project is licensed under [**MIT License**](https://spdx.org/licenses/MIT.html).
+This project is licensed under ![GitHub](https://img.shields.io/github/license/anaguerraabaroa/random-number?label=License&logo=MIT&style=for-the-badge)
