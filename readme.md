@@ -33,7 +33,7 @@ npm start
 
 - **[Project URL](https://anaguerraabaroa.github.io/javascript-codeflix-shows-search/)** is also available on GitHub Pages.
 
-## **Project features**
+## **Features**
 
 - TV shows search form with an input to enter show name and a button to send the request to the [**API**](http://api.tvmaze.com/search/shows?q=girls)
 - Search results list with the name and an image of the show. If the show has not an image, it is shown a default image
